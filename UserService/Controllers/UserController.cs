@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace UserService.Controllers
 {
-    public class Class
+    public class UserController
     {
+
     }
 }

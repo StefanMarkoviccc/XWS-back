@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UserService.Repository
 {
-    public class Class
+    public class UserRepository : IUserRepository
     {
     }
 }
