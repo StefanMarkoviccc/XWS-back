@@ -34,7 +34,7 @@ namespace UserService.Service
         {
             try
             {
-                using UnitWork unitWork = new(new UserContext());
+                using UnitOfWork unitWork = new(new UserContext());
                 TEntity entity = unitWork.GetRepository<TEntity>().Get(id);
 
                 return entity;
@@ -99,7 +99,7 @@ namespace UserService.Service
 
                 TEntity entity = unitOfWork.GetRepository<TEntity>().Get(id);
 
-                (entity as Entity).Delete = true;
+                (entity as Entity).Deleted = true;
 
                 unitOfWork.GetRepository<TEntity>().Update(entity);
                 _ = unitOfWork.Complete();
