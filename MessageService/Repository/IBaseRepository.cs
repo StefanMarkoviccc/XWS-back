@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MessageService.Repository
 {
-    interface IBaseRepository
+    public interface IBaseRepository
     {
     }
 }
