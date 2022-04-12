@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace MessageService.Model
 {
-    public class Entity
+    public interface MessageContext
     {
-        public long Id { get; set; }
-        public bool Deleted { get; set; }
     }
 }
