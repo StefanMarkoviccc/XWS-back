@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UserService.Controllers
+namespace UserService.Repository
 {
-    public class UserController
+    public interface IUnitOfWork : IDisposable
     {
-
+        int Complete();
     }
 }

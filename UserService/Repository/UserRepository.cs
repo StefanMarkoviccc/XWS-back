@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserService.Model;
 
 namespace UserService.Repository
 {
-    public class Class
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
+        public UserRepository(UserContext context) : base(context) { }
     }
 }

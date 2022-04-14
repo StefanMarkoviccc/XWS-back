@@ -1,11 +1,13 @@
-﻿using System;
+﻿using MessageService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MessageService.Repository
 {
-    public class MessageRepository
+    public class MessageRepository : BaseRepository<Message>
     {
+        public MessageRepository(MessageContext context) : base(context) { }
     }
 }
