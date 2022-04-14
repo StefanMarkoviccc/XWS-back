@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UserService.Configuration
+namespace PostService.Configuration
 {
     public class ProjectConfiguration : IProjectConfiguration
     {
         public string FrontendURL { get; set; }
         public string ClientID { get; set; }
-        public string ClientSecret { get; set; }
+        public string CLientSecret { get; set; }
         public DatabaseConfiguration DatabaseConfiguration { get; set; } = new DatabaseConfiguration();
         public EmailSettings EmailSettings { get; set; } = new EmailSettings();
 
@@ -38,4 +38,7 @@ namespace UserService.Configuration
         public string Audience { get; set; }
         public string Subject { get; set; }
     }
+
+
 }
+
