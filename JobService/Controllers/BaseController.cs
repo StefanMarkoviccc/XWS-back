@@ -13,11 +13,12 @@ namespace JobService.Controllers
     public class BaseController<TEntity> : ControllerBase where TEntity : class
     {
         protected ProjectConfiguration _configuration;
-        protected IJobService _jobService;
+        protected IUserService _userService;
         protected BaseService<TEntity> _baseService;
 
-        public BaseController(ProjectConfiguration configuration, IJobService jobService)
+        public BaseController(ProjectConfiguration configuration, IUserService userService)
         {
+            _userService = userService;
             _configuration = configuration;
             _baseService = new BaseService<TEntity>(configuration);
         }
