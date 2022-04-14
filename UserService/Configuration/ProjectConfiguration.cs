@@ -9,7 +9,7 @@ namespace UserService.Configuration
     {
         public string FrontendURL { get; set; }
         public string ClientID { get; set; }
-        public string CLientSecret { get; set; }
+        public string ClientSecret { get; set; }
         public DatabaseConfiguration DatabaseConfiguration { get; set; } = new DatabaseConfiguration();
         public EmailSettings EmailSettings { get; set; } = new EmailSettings();
 
