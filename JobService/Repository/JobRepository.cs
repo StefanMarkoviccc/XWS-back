@@ -1,11 +1,13 @@
-﻿using System;
+﻿using JobService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace JobService.Repository
 {
-    public class JobRepository
+    public class JobRepository : BaseRepository<Job>,IJobRepository
     {
+        public JobRepository(JobContext context ) : base(context) { }
     }
 }

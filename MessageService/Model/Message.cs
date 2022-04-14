@@ -6,9 +6,9 @@ namespace MessageService.Model
 	{
 		public string Text { get; set; }
 
-		public long IdSender { get; set; }
+		public long IdSender{ get; set; }
 
-		public long IdRecipient { get; set; }
+		public long IdRecipient{ get; set; }
 	}
 }
 
