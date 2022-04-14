@@ -1,18 +1,18 @@
-﻿using JobService.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PostService.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JobService.Model
+namespace PostService.Model
 {
-    public class JobContext : DbContext
+    public class PostContext : DbContext
     {
         private static ProjectConfiguration _configuration;
-        public JobContext() { }
+        public PostContext() { }
 
-        public JobContext(DbContextOptions<JobContext> options, ProjectConfiguration configuration) : base(options)
+        public PostContext(DbContextOptions<PostContext> options, ProjectConfiguration configuration) : base(options)
         {
             if (configuration != null)
             {
@@ -20,7 +20,7 @@ namespace JobService.Model
             }
         }
 
-        public DbSet<Job> Messages { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,4 +32,6 @@ namespace JobService.Model
             optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
         }
     }
+        
 }
+

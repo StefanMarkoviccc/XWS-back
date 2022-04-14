@@ -1,12 +1,10 @@
-﻿using JobService.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JobService.Configuration
+namespace PostService.Configuration
 {
-
     public class ProjectConfiguration : IProjectConfiguration
     {
         public string FrontendURL { get; set; }
@@ -40,4 +38,7 @@ namespace JobService.Configuration
         public string Audience { get; set; }
         public string Subject { get; set; }
     }
+
+
 }
+

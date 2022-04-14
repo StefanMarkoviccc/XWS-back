@@ -12,9 +12,9 @@ namespace MessageService.Model
         private static ProjectConfiguration _configuration;
         public MessageContext() { }
 
-        public MessageContext(DbContextOptions<MessageContext> options, ProjectConfiguration configuration) : base(options) 
+        public MessageContext(DbContextOptions<MessageContext> options, ProjectConfiguration configuration) : base(options)
         {
-            if (configuration != null) 
+            if (configuration != null)
             {
                 _configuration = configuration;
             }
@@ -22,9 +22,9 @@ namespace MessageService.Model
 
         public DbSet<Message> Messages { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (optionsBuilder.IsConfigured) 
+            if (optionsBuilder.IsConfigured)
             {
                 return;
             }
