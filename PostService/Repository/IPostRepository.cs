@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace PostService.Repository
 {
-    public class PostSettingsRepository : BaseRepository<PostSettings>, IPostSettingsRepository
+    public interface IPostRepository
     {
-        public PostSettingsRepository(PostContext context) : base(context) { }
+        IEnumerable<Post> GetAllUserPosts(long id);
+     
     }
 }

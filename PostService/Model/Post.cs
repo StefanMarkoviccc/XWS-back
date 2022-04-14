@@ -7,8 +7,10 @@ namespace PostService.Model
 {
     public class Post : Entity
     {
-        public String content { get; set; }
-        public String image { get; set; }
+        public String Content { get; set; }
+        public String Image { get; set; }
+
+        public long PostId { get; set; }
 
     }
 }

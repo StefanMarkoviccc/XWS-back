@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace PostService.Repository
 {
-    public class PostRepository : BaseRepository<Post>
+    public class PostRepository : BaseRepository<Post>, IPostRepository
     {
         public PostRepository(PostContext context) : base(context) { }
+
+    
+
+        public IEnumerable<Post> GetAllUserPosts(long id)
+        {
+            return PostContext.Posts.Where(x => !x.Deleted && x.PostId == id).ToList();
+        }
     }
 }

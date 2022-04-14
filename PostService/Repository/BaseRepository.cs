@@ -12,7 +12,7 @@ namespace PostService.Repository
     {
         private readonly DbContext _context;
 
-        public PostContext LogicalContractContext
+        public PostContext PostContext
         {
             get { return _context as PostContext; }
         }
