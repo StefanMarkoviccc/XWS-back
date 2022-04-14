@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MessageService.Service
 {
-    public class MessageSettingsService : BaseService<MessageSettingsService>, IMessageSettingsService
+    public interface IMessageSettingsService
     {
     }
 }
