@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MessageService.Model
 {
-    public interface MessageContext
+    public class MessageContext
     {
     }
 }
