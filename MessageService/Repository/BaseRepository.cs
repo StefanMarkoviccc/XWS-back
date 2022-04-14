@@ -12,7 +12,7 @@ namespace MessageService.Repository
     {
         private readonly DbContext _context;
 
-        public MessageContext LogicalContractContext 
+        public MessageContext MessageContext 
         {
             get { return _context as MessageContext; }
         }

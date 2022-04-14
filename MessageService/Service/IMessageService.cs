@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MessageService.Repository
+namespace MessageService.Service
 {
-    public interface IMessageRepository
+    public interface IMessageService
     {
-        IEnumerable<Message> GetAllBySender(long id);
         IEnumerable<Message> GetAllByRecipient(long id);
+        IEnumerable<Message> GetAllBySender(long id);
     }
 }
