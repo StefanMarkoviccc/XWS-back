@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MessageService.Repository
 {
-    public class MessageRepository : BaseRepository<Message>
+    public class MessageRepository : BaseRepository<Message>, IMessageRepository
     {
         public MessageRepository(MessageContext context) : base(context) { }
     }
