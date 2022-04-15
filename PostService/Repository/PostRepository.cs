@@ -14,7 +14,7 @@ namespace PostService.Repository
 
         public IEnumerable<Post> GetAllUserPosts(long id)
         {
-            return PostContext.Posts.Where(x => !x.Deleted && x.PostId == id).ToList();
+            return PostContext.Posts.Where(x => !x.Deleted && x.UserID == id).ToList();
         }
     }
 }

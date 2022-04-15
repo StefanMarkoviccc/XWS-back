@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public interface IPostService
+    public interface ICommentsService
     {
-        IEnumerable<Post> GetAllUserPosts(long id);
+        IEnumerable<Post> GetAllPostComments(long id);
+
+        IEnumerable<Post> GetAllUserComments(long id);
     }
 }

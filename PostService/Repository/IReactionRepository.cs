@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PostService.Service
+namespace PostService.Repository
 {
-    public interface IPostService
+    public interface IReactionRepository
     {
-        IEnumerable<Post> GetAllUserPosts(long id);
+        IEnumerable<Post> GetAllPostReactions(long id);
     }
 }

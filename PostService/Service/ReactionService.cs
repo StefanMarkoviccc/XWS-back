@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public class PostService : BaseService<Post>, IPostService
+    public class ReactionService : BaseService<Post>, IReactionService
     {
-        public PostService() { }
-        public IEnumerable<Post> GetAllUserPosts(long id)
+        public ReactionService() { }
+        public IEnumerable<Post> GetAllPostReactions(long id)
         {
             try
             {
                 using UnitOfWork unitOfWork = new UnitOfWork(new PostContext());
 
-                return unitOfWork.Posts.GetAllUserPosts(id);
+                return unitOfWork.Reactions.GetAllPostReactions(id);
             }
             catch (Exception e)
             {

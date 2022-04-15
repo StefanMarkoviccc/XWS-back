@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public interface IPostService
+    public interface IReactionService
     {
-        IEnumerable<Post> GetAllUserPosts(long id);
+        IEnumerable<Post> GetAllPostReactions(long id);
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public class PostSettingsService
+    public class PostSettingsService : BaseService<PostSettingsService>, IPostSettingsService
     {
     }
 }

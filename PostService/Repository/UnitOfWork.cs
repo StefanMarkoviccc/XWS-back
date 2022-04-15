@@ -16,9 +16,15 @@ namespace PostService.Repository
         {
             _context = context;
             Posts = new PostRepository(_context);
+            Reactions = new ReactionRepository(_context);
+            Comments = new CommentsRepository(_context);
         }
 
         public IPostRepository Posts { get; private set; }
+
+        public IReactionRepository Reactions { get; private set; }
+        
+        public ICommentsRepository Comments { get; private set; }
         public IBaseRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
             if (_repositories == null)

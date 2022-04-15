@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PostService.Service
+namespace PostService.Model
 {
-    public interface IUserService
+    public enum Reaction
     {
+      Like, Dislike
     }
 }
