@@ -12,11 +12,13 @@ namespace UserService.Service
         User GetUserWithEmailAndPassword(string email, string password);
         User GetUserWithEmail(string email);
         User Get(long id);
+        User CreateUser(User user);
         User GetUserWithRegistrationToken(string token);
-        User ChangePasswordWithToken(UserService userData);
+        User ChangePasswordWithToken(User userData);
         bool RequestPasswordReset(string email);
         bool PasswordReset(string token, string password);
         bool Activate(string token);
         IEnumerable<User> GetAll();
+        IEnumerable<User> GetAllByPosition(long id);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UserService.Configuration;
+using UserService.Model;
 using UserService.Service;
 
 namespace UserService.Controllers
@@ -63,6 +64,13 @@ namespace UserService.Controllers
             {
                 bool response = _baseService.Delete(id);
                 return Ok(response);
+            }
+
+            protected User GetCurrentUser()
+            {
+                string email = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Email")?.Value;
+
+                return _userService.GetUserWithEmail(email);
             }
         }
     }

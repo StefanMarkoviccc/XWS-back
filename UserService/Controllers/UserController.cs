@@ -1,12 +1,163 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserService.Configuration;
+using UserService.DTO;
+using UserService.Model;
+using UserService.Service;
 
 namespace UserService.Controllers
 {
-    public class UserController
+
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UserController : BaseController<User>
     {
+        public UserController(ProjectConfiguration projectConfiguration, IUserService userService) : base(projectConfiguration, userService)
+        {
+            
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetCurrent()
+        {
+            return Ok(GetCurrentUser());
+        }
+
+        [Route("all")]
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_userService.GetAll());
+        }
+
+        [Route("register")]
+        [HttpPost]
+        public IActionResult Register (User userData)
+        {
+            if(userData.Email==null)
+            {
+                return BadRequest();
+            }
+
+            User user = _userService.GetUserWithEmailAndPassword(userData.Email, userData.Password);
+
+            if(user != null)
+            {
+                return BadRequest("User exists");
+            }
+
+            User registeredUser = _userService.Add(userData);
+
+            return Ok(registeredUser);
+        }
+
+        [HttpPost]
+        public IActionResult CreateUser(User userData)
+        {
+            if(userData.Email == null || userData.FirstName == null)
+            {
+                return BadRequest();
+            }
+
+            User user = _userService.GetUserWithEmail(userData.Email);
+
+            if (user != null)
+            {
+                return BadRequest("User exists");
+            }
+
+            if (_userService.CreateUser(userData) == null)
+            {
+                return BadRequest("User not created");
+            }
+            return Ok();
+
+        }
+
+        [Route("activate/{token}")]
+        [HttpPost]
+        public IActionResult RequestPasswordReset(string token)
+        {
+            
+            if (!_userService.Activate(token))
+            {
+                return BadRequest();
+            }
+            return Ok();
+
+        }
+
+        [Route("request-password-reset")]
+        [HttpPost]
+        public IActionResult RequestPasswordReset(RequestEmailDTO request)
+        {
+            if (request.Email == null || request.Email == string.Empty)
+            {
+                return BadRequest();
+            }
+
+            if (!_userService.RequestPasswordReset(request.Email))
+            {
+                return BadRequest();
+            }
+            return Ok();
+
+        }
+
+        [Route("reset-password")]
+        [HttpPost]
+        public IActionResult ResetPassword(ResetPasswordDTO request)
+        {
+            if(request.Token == null || request.Token == string.Empty || request.Password == null || request.Password == string.Empty)
+            {
+                return BadRequest();
+            }
+
+            if(!_userService.PasswordReset(request.Token, request.Password))
+            {
+                return BadRequest("Password not reseted");
+            }
+            return Ok();
+        }
+
+
+        [Route("change-password")]
+        [HttpPost]
+        public IActionResult ChangePasswordWithToken(User userData)
+        {
+            if (userData.RegistrationToken == null || userData.Password == null)
+            {
+                return BadRequest();
+            }
+
+            User user = _userService.GetUserWithRegistrationToken(userData.RegistrationToken);
+
+
+            if (user == null )
+            {
+                return BadRequest("User with provided token does not exist");
+            }
+
+            if (_userService.ChangePasswordWithToken(userData) == null)
+            {
+                return BadRequest("Password with token was not changed");
+            }
+            return Ok();
+        }
+
+
+        [Route("get-current-user-data")]
+        [HttpPost]
+        public IActionResult GetCurrentUserData()
+        {
+            return Ok(GetCurrentUser());
+        }
+
 
     }
 }

@@ -15,5 +15,11 @@ namespace UserService.Model
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public bool Enabled { get; set; }
+
+        public string RegistrationToken {get; set;}
+
+        public string ResetPasswordToken { get; set; }
+
+        public UserType UserType { get; set; }
     }
 }
