@@ -23,6 +23,7 @@ namespace UserService.Controllers
             {
                 _configuration = configuration;
                 _baseService = new BaseService<TEntity>(configuration);
+                _userService = userService;
             }
 
             [HttpGet("{id}")]

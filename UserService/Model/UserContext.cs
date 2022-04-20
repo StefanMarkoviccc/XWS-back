@@ -29,7 +29,8 @@ namespace UserService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=user;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace MessageService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=message;Trusted_Connection=True;");
         }
     }
 }

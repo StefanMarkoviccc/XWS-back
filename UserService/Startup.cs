@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserService.Configuration;
+using UserService.Service;
 
 namespace UserService
 {
@@ -32,6 +34,13 @@ namespace UserService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UserService", Version = "v1" });
             });
+
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IUserService, UserService.Service.UserService>();
+
+            ProjectConfiguration config = new ProjectConfiguration();
+            Configuration.Bind("ProjectConfiguration", config);
+            services.AddSingleton(config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
