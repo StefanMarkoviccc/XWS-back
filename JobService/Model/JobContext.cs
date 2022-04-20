@@ -20,7 +20,7 @@ namespace JobService.Model
             }
         }
 
-        public DbSet<Job> Messages { get; set; }
+        public DbSet<Job> Jobs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,7 +29,7 @@ namespace JobService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=job;Trusted_Connection=True;");
         }
     }
 }

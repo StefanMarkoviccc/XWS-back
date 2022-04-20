@@ -1,3 +1,5 @@
+using JobService.Configuration;
+using JobService.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,12 @@ namespace JobService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JobService", Version = "v1" });
             });
+
+            services.AddScoped<IJobService, JobService.Service.JobService>();
+
+            ProjectConfiguration config = new ProjectConfiguration();
+            Configuration.Bind("ProjectConfiguration", config);
+            services.AddSingleton(config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
