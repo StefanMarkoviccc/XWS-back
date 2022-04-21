@@ -19,7 +19,8 @@ namespace UserService.Service
         bool PasswordReset(string token, string password);
         bool Activate(string token); 
         IEnumerable<User> GetAll();
+
         IEnumerable<User> GetPublicUsers();
-        IEnumerable<User> GetAllByPosition(long id);
+
     }
 }
