@@ -168,6 +168,20 @@ namespace UserService.Service
             return true;
         }
 
+        public IEnumerable<User> GetPublicUsers()
+        {
+            try
+            {
+                using UnitOfWork unitOfWord = new(new UserContext());
+                return unitOfWord.Users.GetPublicUsers();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error is UserService in PublicUsersMethod {e.Message} {e.StackTrace}");
+                return new List<User>();
+            }
+        }
+
         public User CreateUser(User userData)
         {
             if(userData == null)

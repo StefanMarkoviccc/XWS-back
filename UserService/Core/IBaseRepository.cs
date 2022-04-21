@@ -13,6 +13,9 @@ namespace UserService.Core
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         IEnumerable<TEntity> GetAll();
+
+        IEnumerable<TEntity> GetPublicUsers();
+
         IEnumerable<TEntity> Search(string term = "");
         PageResponse<TEntity> GetPage(PageModel model);
 

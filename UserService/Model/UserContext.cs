@@ -29,7 +29,7 @@ namespace UserService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=user;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-J9TLUS9E;Database=user;Trusted_Connection=True;");
             //optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
         }
     }

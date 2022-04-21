@@ -21,5 +21,7 @@ namespace UserService.Model
         public string ResetPasswordToken { get; set; }
 
         public UserType UserType { get; set; }
+
+        public bool IsPublic { get; set; }
     }
 }

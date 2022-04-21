@@ -17,8 +17,9 @@ namespace UserService.Service
         User ChangePasswordWithToken(User userData);
         bool RequestPasswordReset(string email);
         bool PasswordReset(string token, string password);
-        bool Activate(string token);
+        bool Activate(string token); 
         IEnumerable<User> GetAll();
+        IEnumerable<User> GetPublicUsers();
         IEnumerable<User> GetAllByPosition(long id);
     }
 }
