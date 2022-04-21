@@ -29,7 +29,7 @@ namespace PostService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=post;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-J9TLUS9E;Database=post;Trusted_Connection=True;");
         }
     }
         

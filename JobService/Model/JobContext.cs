@@ -29,7 +29,7 @@ namespace JobService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-BVCUO7A;Database=job;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-J9TLUS9E;Database=job;Trusted_Connection=True;");
         }
     }
 }

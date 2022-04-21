@@ -35,6 +35,14 @@ namespace UserService.Controllers
             return Ok(_userService.GetAll());
         }
 
+
+        [Route("PublicUsers")]
+        [HttpGet]
+        public IActionResult GetPublicUsers()
+        {
+            return Ok(_userService.GetPublicUsers());
+        }
+
         [Route("register")]
         [HttpPost]
         public IActionResult Register (User userData)

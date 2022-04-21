@@ -11,6 +11,11 @@ namespace UserService.Repository
     {
         public UserRepository(UserContext context) : base(context) { }
 
+        public IEnumerable<User> GetPublicUsers()
+        {
+            return UserContext.Users.Where(x => x.IsPublic).ToList();
+        }
+
         public User GetUserWithEmail(string email)
         {
             return UserContext.Users.Where(x => x.Email == email).SingleOrDefault();

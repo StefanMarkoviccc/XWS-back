@@ -30,6 +30,7 @@ namespace UserService.Model
             }
 
             optionsBuilder.UseSqlServer("Server=mssql;Database=user;User Id=sa;Password=mssql1Ipw;");
+
             //optionsBuilder.UseSqlServer(_configuration.DatabaseConfiguration.ConnectionString);
         }
     }
