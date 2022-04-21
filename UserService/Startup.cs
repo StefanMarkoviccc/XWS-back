@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UserService.Configuration;
+using UserService.Model;
 using UserService.Service;
 
 namespace UserService
@@ -38,13 +40,15 @@ namespace UserService
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IUserService, UserService.Service.UserService>();
 
+            services.AddDbContext<UserContext>(optionsBuilder => { });
+
             ProjectConfiguration config = new ProjectConfiguration();
             Configuration.Bind("ProjectConfiguration", config);
             services.AddSingleton(config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserContext userContext)
         {
             if (env.IsDevelopment())
             {
@@ -52,6 +56,8 @@ namespace UserService
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UserService v1"));
             }
+
+            userContext.Database.Migrate();
 
             app.UseHttpsRedirection();
 
