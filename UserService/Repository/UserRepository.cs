@@ -13,27 +13,27 @@ namespace UserService.Repository
 
         public User GetUserWithEmail(string email)
         {
-            throw new NotImplementedException();
+            return UserContext.Users.Where(x => x.Email == email).SingleOrDefault();
         }
 
         public User GetUserWithEmailAndPassword(string email, string password)
         {
-            throw new NotImplementedException();
+            return UserContext.Users.Where(x => x.Email == email && x.Password == password).SingleOrDefault();
         }
 
         public User GetUserWithRegistationToken(string token)
         {
-            throw new NotImplementedException();
+            return UserContext.Users.Where(x => x.RegistrationToken == token).SingleOrDefault();
         }
 
         public User GetUserWithRegistrationToken(string token)
         {
-            throw new NotImplementedException();
+            return UserContext.Users.Where(x => x.RegistrationToken == token).SingleOrDefault();
         }
 
         public User GetUserWithResetToken(string token)
         {
-            throw new NotImplementedException();
+            return UserContext.Users.Where(x => x.ResetPasswordToken == token).SingleOrDefault();
         }
     }
 }

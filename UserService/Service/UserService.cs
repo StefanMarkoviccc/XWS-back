@@ -99,7 +99,7 @@ namespace UserService.Service
             try
             {
                 using UnitOfWork unitOfWork = new(new UserContext());
-                return unitOfWork.Users.GetUserWithRegistrationToken(token);
+                return unitOfWork.Users.GetUserWithRegistationToken(token);
 
             }
 
@@ -145,7 +145,7 @@ namespace UserService.Service
             try
             {
                 using UnitOfWork unitOfWord = new(new UserContext());
-                User user = unitOfWord.Users.GetUserWithRegistrationToken(token);
+                User user = unitOfWord.Users.GetUserWithRegistationToken(token);
 
                 if (user == null)
                 {
@@ -212,20 +212,32 @@ namespace UserService.Service
             }
         }
 
-        public IEnumerable<User> GetAllByPosition(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public User GetUserWithEmailAndPassword(string email, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using UnitOfWork unitOfWord = new(new UserContext());
+                return unitOfWord.Users.GetUserWithEmailAndPassword(email, password);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error is UserService in CreateUserMethod {e.Message} {e.StackTrace}");
+                return null;
+            }
         }
 
         public User GetUserWithRegistrationToken(string token)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using UnitOfWork unitOfWord = new(new UserContext());
+                return unitOfWord.Users.GetUserWithRegistationToken(token);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error is UserService in CreateUserMethod {e.Message} {e.StackTrace}");
+                return null;
+            }
         }
 
         public bool PasswordReset(string token, string password)

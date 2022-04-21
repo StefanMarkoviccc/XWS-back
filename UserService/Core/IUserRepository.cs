@@ -12,6 +12,5 @@ namespace UserService.Core
         User GetUserWithRegistationToken(string token);
         User GetUserWithResetToken(string token);
         User GetUserWithEmailAndPassword(string email, string password);
-        User GetUserWithRegistrationToken(string token);
     }
 }
