@@ -18,6 +18,7 @@ namespace UserService.Repository
             _context = context;
             Users = new UserRepository(_context);
         }
+        public IUserFollowRepository UserFollows { get; private set; }
 
         public IUserRepository Users { get; private set; }
         public IBaseRepository<TEntity> GetRepository<TEntity>() where TEntity : class

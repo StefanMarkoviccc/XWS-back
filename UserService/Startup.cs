@@ -39,6 +39,7 @@ namespace UserService
 
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IUserService, UserService.Service.UserService>();
+            services.AddScoped<IUserWhoFollowService, UserWhoFollowService>();
 
             services.AddDbContext<UserContext>(optionsBuilder => { });
 

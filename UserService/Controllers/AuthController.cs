@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace UserService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : BaseController<User>
+    public class AuthController : BaseController<User> 
     {
             private readonly IUserService _userService;
             private readonly ProjectConfiguration _configuration;
@@ -67,6 +68,5 @@ namespace UserService.Controllers
                 return Ok(new { Token = new JwtSecurityTokenHandler().WriteToken(token) });
             }
 
-        
     }
 }

@@ -21,7 +21,6 @@ namespace PostService.Repository
         }
 
         public IPostRepository Posts { get; private set; }
-
         public IReactionRepository Reactions { get; private set; }
         
         public ICommentsRepository Comments { get; private set; }

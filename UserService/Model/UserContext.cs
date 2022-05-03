@@ -21,6 +21,7 @@ namespace UserService.Model
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserFollow> UserFollows { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

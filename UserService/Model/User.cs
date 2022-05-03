@@ -22,6 +22,6 @@ namespace UserService.Model
 
         public UserType UserType { get; set; }
 
-        public bool IsPublic { get; set; }
+        public bool IsPublic { get; set; }    
     }
 }
