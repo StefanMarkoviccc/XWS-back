@@ -16,5 +16,6 @@ namespace PostService.Model
 
         public Reaction Reaction { get; set; }
 
+
     }
 }

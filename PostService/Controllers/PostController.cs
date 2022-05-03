@@ -11,13 +11,13 @@ namespace PostService.Controllers
 {
     
         [ApiController]
-        [Route("[controller]")]
+        [Route("api/[controller]")]
         public class PostController : BaseController<Post>
         {
             private IPostService postService;
 
-            public PostController(ProjectConfiguration projectConfiguration, IUserService userService,
-                IPostService postService) : base(projectConfiguration, userService)
+            public PostController(ProjectConfiguration projectConfiguration,
+                IPostService postService) : base(projectConfiguration, null)
             {
                 this.postService = postService;
             }
