@@ -64,7 +64,7 @@ namespace UserService.Controllers
 
                 JwtSecurityToken token = new(_configuration.Jwt.Issuer, _configuration.Jwt.Audience, claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
 
-                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                return Ok(new { Token = new JwtSecurityTokenHandler().WriteToken(token) });
             }
 
         

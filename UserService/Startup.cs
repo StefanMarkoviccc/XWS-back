@@ -42,6 +42,11 @@ namespace UserService
 
             services.AddDbContext<UserContext>(optionsBuilder => { });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader();
+            }));
+
             ProjectConfiguration config = new ProjectConfiguration();
             Configuration.Bind("ProjectConfiguration", config);
             services.AddSingleton(config);
@@ -64,6 +69,8 @@ namespace UserService
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("MyPolicy");
 
             app.UseEndpoints(endpoints =>
             {

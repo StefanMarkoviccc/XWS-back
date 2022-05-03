@@ -7,6 +7,6 @@ namespace UserService.Model
 {
     public enum Gender
     {
-        FEMALE, MALE, OTHER
+        FEMALE = 1, MALE = 2, OTHER = 3
     }
 }

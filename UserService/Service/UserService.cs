@@ -35,7 +35,7 @@ namespace UserService.Service
             {
                 using UnitOfWork unitOfWork = new(new UserContext());
                 entity.Password = BCrypt.Net.BCrypt.HashPassword(entity.Password);
-                entity.Enabled = false;
+                entity.Enabled = true;
                 entity.UserType = UserType.Admin;
                 entity.RegistrationToken = RandomStringHelper.RandomString(20);
                 unitOfWork.Users.Add(entity);
