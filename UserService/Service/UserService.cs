@@ -310,5 +310,36 @@ namespace UserService.Service
             }
             return true;
         }
+
+        public override bool Update(long id, User user)
+        {
+            try
+            {
+                using UnitOfWork unitOfWork = new(new UserContext());
+
+                User userDB = Get(id);
+
+                userDB.Email = user.Email;
+                userDB.FirstName = user.FirstName;
+                userDB.LastName = user.LastName;
+                userDB.Phone = user.Phone;
+                userDB.Gender = user.Gender;
+                userDB.BirthDate = user.BirthDate;
+                userDB.Description = user.Description;
+                userDB.Education = user.Education;
+                userDB.Interest = user.Interest;
+                userDB.IsExperienced = user.IsExperienced;
+                userDB.IsPublic = user.IsPublic;
+
+                unitOfWork.Users.Update(userDB);
+                _ = unitOfWork.Complete();
+
+                return true;
+            }
+            catch (Exception e) 
+            {
+                return false;
+            }
+        }
     }
 }

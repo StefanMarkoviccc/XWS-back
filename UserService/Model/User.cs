@@ -23,5 +23,13 @@ namespace UserService.Model
         public UserType UserType { get; set; }
 
         public bool IsPublic { get; set; }
+
+        public bool IsExperienced { get; set; }
+
+        public string Education { get; set; }
+
+        public string Interest { get; set; }
+
+        public string Description { get; set; }
     }
 }

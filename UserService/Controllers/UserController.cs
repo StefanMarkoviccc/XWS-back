@@ -166,6 +166,15 @@ namespace UserService.Controllers
             return Ok(GetCurrentUser());
         }
 
-
+        [HttpPut("{id}")]
+        public override IActionResult Update(int id, User entity)
+        {
+            if (entity == null)
+            {
+                return BadRequest();
+            }
+            bool response = _userService.Update(id, entity);
+            return Ok(response);
+        }
     }
 }

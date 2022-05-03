@@ -22,5 +22,7 @@ namespace UserService.Service
 
         IEnumerable<User> GetPublicUsers();
 
+        bool Update(long id, User ent);
+
     }
 }

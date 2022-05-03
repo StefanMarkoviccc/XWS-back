@@ -7,6 +7,7 @@ namespace PostService.Model
 {
     public enum Reaction
     {
-      Like, Dislike
+      Like = 1,
+      Dislike= 2,
     }
 }

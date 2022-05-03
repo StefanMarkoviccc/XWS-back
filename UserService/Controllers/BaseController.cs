@@ -50,7 +50,7 @@ namespace UserService.Controllers
             }
 
             [HttpPut("{id}")]
-            public IActionResult Update(int id, TEntity entity)
+            public virtual IActionResult Update(int id, TEntity entity)
             {
                 if (entity == null)
                 {
