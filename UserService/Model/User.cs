@@ -22,9 +22,6 @@ namespace UserService.Model
 
         public UserType UserType { get; set; }
 
-<<<<<<< HEAD
-        public bool IsPublic { get; set; }    
-=======
         public bool IsPublic { get; set; }
 
         public bool IsExperienced { get; set; }
@@ -34,6 +31,6 @@ namespace UserService.Model
         public string Interest { get; set; }
 
         public string Description { get; set; }
->>>>>>> d4adb25024e9513c276907f32c815449f8baeba5
+ 
     }
 }

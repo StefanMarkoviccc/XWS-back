@@ -6,7 +6,7 @@ using UserService.Model;
 
 namespace UserService.Repository
 {
-    public interface IUserFollowRepository
+    public interface IUserFollowRepository : IBaseRepository<UserFollow>
     {
     }
 }

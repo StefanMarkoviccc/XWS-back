@@ -6,7 +6,7 @@ using UserService.Model;
 
 namespace UserService.Repository
 {
-    public class UserFollowRepository : BaseRepository<User>, IUserFollowRepository
+    public class UserFollowRepository : BaseRepository<UserFollow>, IUserFollowRepository
     {
         public UserFollowRepository(UserContext context) : base(context) { }
     }
