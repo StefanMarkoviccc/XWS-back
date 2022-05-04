@@ -8,8 +8,8 @@ namespace PostService.Service
 {
     public interface ICommentsService
     {
-        IEnumerable<Post> GetAllPostComments(long id);
+        IEnumerable<Comments> GetAllPostComments(long id);
 
-        IEnumerable<Post> GetAllUserComments(long id);
+        IEnumerable<Comments> GetAllUserComments(long id);
     }
 }

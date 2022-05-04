@@ -38,9 +38,11 @@ namespace PostService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PostService", Version = "v1" });
             });
 
-            services.AddDbContext<PostContext>(optionsBuilder => { });
-
             services.AddScoped<IPostService, PostService.Service.PostService>();
+            services.AddScoped<IReactionService, PostService.Service.ReactionService>();
+            services.AddScoped<ICommentsService, PostService.Service.CommentsService>();
+
+            services.AddDbContext<PostContext>(optionsBuilder => { });
 
             ProjectConfiguration config = new ProjectConfiguration();
             Configuration.Bind("ProjectConfiguration", config);

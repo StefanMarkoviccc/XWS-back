@@ -8,6 +8,6 @@ namespace PostService.Service
 {
     public interface IReactionService
     {
-        IEnumerable<Post> GetAllPostReactions(long id);
+        IEnumerable<Reaction> GetAllPostReactions(long id);
     }
 }

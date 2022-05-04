@@ -7,15 +7,11 @@ namespace PostService.Model
 {
     public class Post : Entity
     {
-        public String Content { get; set; }
-        public String Image { get; set; }
+        public string Content { get; set; }
+        public string Image { get; set; }
 
         public long PostId { get; set; }
-
         public long UserID { get; set; }
-
-        public Reaction Reaction { get; set; }
-
 
     }
 }

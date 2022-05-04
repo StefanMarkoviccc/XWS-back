@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 
 namespace PostService.Model
 {
-    public enum Reaction
+    public class Reaction : Entity
     {
-      Like = 1,
-      Dislike= 2,
+        public ReactionType ReactionType { get; set; }
+
+        public long PostId { get; set; }
+
+        public long UserId { get; set; }
     }
 }

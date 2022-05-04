@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace PostService.Repository
 {
-    public class CommentsRepository : BaseRepository<Post>, ICommentsRepository
+    public class CommentsRepository : BaseRepository<Comments>, ICommentsRepository
     {
         public CommentsRepository(PostContext context) : base(context) { }
 
 
 
-        public IEnumerable<Post> GetAllPostComments(long id)
+        public IEnumerable<Comments> GetAllPostComments(long id)
         {
-            return PostContext.Posts.Where(x => !x.Deleted && x.PostId == id).ToList();
+            return PostContext.Comments.Where(x => !x.Deleted && x.PostId == id).ToList();
         }
 
-        public IEnumerable<Post> GetAllUserComments(long id)
+        public IEnumerable<Comments> GetAllUserComments(long id)
         {
-            return PostContext.Posts.Where(x => !x.Deleted && x.UserID == id).ToList();
+            return PostContext.Comments.Where(x => !x.Deleted && x.UserID == id).ToList();
         }
     }
 }

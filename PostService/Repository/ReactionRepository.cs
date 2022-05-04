@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace PostService.Repository
 {
-    public class ReactionRepository : BaseRepository<Post>, IReactionRepository
+    public class ReactionRepository : BaseRepository<Reaction>, IReactionRepository
     {
         public ReactionRepository(PostContext context) : base(context) { }
 
 
 
-        public IEnumerable<Post> GetAllPostReactions(long id)
+        public IEnumerable<Reaction> GetAllPostReactions(long id)
         {
-            return PostContext.Posts.Where(x => !x.Deleted && x.PostId == id).ToList();
+            return PostContext.Reactions.Where(x => !x.Deleted && x.PostId == id).ToList();
         }
     }
 }

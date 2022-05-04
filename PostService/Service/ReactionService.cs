@@ -1,4 +1,5 @@
-﻿using PostService.Model;
+﻿using Microsoft.Extensions.Logging;
+using PostService.Model;
 using PostService.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public class ReactionService : BaseService<Post>, IReactionService
+    public class ReactionService : BaseService<Reaction>, IReactionService
     {
-        public ReactionService() { }
-        public IEnumerable<Post> GetAllPostReactions(long id)
+        public ReactionService(ILogger<ReactionService> logger)
+        {
+            _logger = logger;
+        }
+
+        public IEnumerable<Reaction> GetAllPostReactions(long id)
         {
             try
             {
@@ -20,7 +25,7 @@ namespace PostService.Service
             }
             catch (Exception e)
             {
-                return new List<Post>();
+                return new List<Reaction>();
             }
         }
 

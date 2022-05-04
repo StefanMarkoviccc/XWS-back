@@ -22,6 +22,9 @@ namespace PostService.Model
 
         public DbSet<Post> Posts { get; set; }
 
+        public DbSet<Reaction> Reactions { get; set; }
+        public DbSet<Comments> Comments { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)

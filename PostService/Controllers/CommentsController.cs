@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 namespace PostService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class CommentsController : BaseController<Post>
+    [Route("api/[controller]")]
+    public class CommentsController : BaseController<Comments>
     {
         private ICommentsService commentsService;
 
-        public CommentsController(ProjectConfiguration projectConfiguration, IUserService userService,
-            ICommentsService commentsService) : base(projectConfiguration, userService)
+        public CommentsController(ProjectConfiguration projectConfiguration,
+            ICommentsService commentsService) : base(projectConfiguration, null)
         {
             this.commentsService = commentsService;
         }

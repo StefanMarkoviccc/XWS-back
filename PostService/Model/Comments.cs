@@ -11,6 +11,6 @@ namespace PostService.Model
 
         public long UserID { get; set; }
 
-        public string CommentContext { get; set; }
+        public string Content { get; set; }
     }
 }

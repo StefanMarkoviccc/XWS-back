@@ -11,8 +11,8 @@ namespace PostService.Service
 {
     public class BaseService<TEntity> where TEntity : class
     {
-        protected readonly ProjectConfiguration _configuration;
-        protected readonly ILogger _logger;
+        protected ProjectConfiguration _configuration;
+        protected ILogger _logger;
 
         public BaseService()
         {

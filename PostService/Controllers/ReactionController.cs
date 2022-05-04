@@ -10,16 +10,18 @@ using System.Threading.Tasks;
 namespace PostService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class ReactionController : BaseController<Post>
+    [Route("api/[controller]")]
+    public class ReactionController : BaseController<Reaction>
     {
         private IReactionService reactionService;
 
-        public ReactionController(ProjectConfiguration projectConfiguration, IUserService userService,
-            IReactionService reactionService) : base(projectConfiguration, userService)
+        public ReactionController(ProjectConfiguration projectConfiguration,
+            IReactionService reactionService) : base(projectConfiguration, null)
         {
             this.reactionService = reactionService;
         }
+
+
 
         [HttpGet("postReaction/{id}")]
         public virtual IActionResult GetAllPostReactions(int id)

@@ -1,4 +1,5 @@
-﻿using PostService.Model;
+﻿using Microsoft.Extensions.Logging;
+using PostService.Model;
 using PostService.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,11 @@ namespace PostService.Service
 {
     public class PostService : BaseService<Post>, IPostService
     {
-        public PostService() { }
+        public PostService(ILogger<PostService> logger) 
+        {
+            _logger = logger;
+        }
+
         public IEnumerable<Post> GetAllUserPosts(long id)
         {
             try
@@ -24,5 +29,41 @@ namespace PostService.Service
             }
         }
 
+        public IEnumerable<Post> GetAllUsersPosts(List<long> ids)
+        {
+            try
+            {
+                using UnitOfWork unitOfWork = new UnitOfWork(new PostContext());
+
+                return unitOfWork.Posts.GetAllUsersPosts(ids);
+            }
+            catch (Exception e)
+            {
+                return new List<Post>();
+            }
+        }
+
+        public override bool Update(long id, Post post)
+        {
+            try
+            {
+                using UnitOfWork unitOfWork = new(new PostContext());
+
+                Post postDB = Get(id);
+
+                postDB.Content = post.Content;
+                postDB.Image = post.Image;
+
+                unitOfWork.Posts.Update(postDB);
+                _ = unitOfWork.Complete();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
+

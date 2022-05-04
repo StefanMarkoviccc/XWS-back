@@ -1,4 +1,5 @@
-﻿using PostService.Model;
+﻿using Microsoft.Extensions.Logging;
+using PostService.Model;
 using PostService.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace PostService.Service
 {
-    public class CommentsService : BaseService<Post>, ICommentsService
+    public class CommentsService : BaseService<Comments>, ICommentsService
     {
-        public CommentsService() { }
-        public IEnumerable<Post> GetAllPostComments(long id)
+        public CommentsService(ILogger<CommentsService> logger) 
+        {
+            _logger = logger;
+        }
+
+        public IEnumerable<Comments> GetAllPostComments(long id)
         {
             try
             {
@@ -20,11 +25,11 @@ namespace PostService.Service
             }
             catch (Exception e)
             {
-                return new List<Post>();
+                return new List<Comments>();
             }
         }
 
-        public IEnumerable<Post> GetAllUserComments(long id)
+        public IEnumerable<Comments> GetAllUserComments(long id)
         {
             try
             {
@@ -34,7 +39,7 @@ namespace PostService.Service
             }
             catch (Exception e)
             {
-                return new List<Post>();
+                return new List<Comments>();
             }
         }
 
