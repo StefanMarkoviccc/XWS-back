@@ -31,6 +31,6 @@ namespace UserService.Model
         public string Interest { get; set; }
 
         public string Description { get; set; }
- 
+
     }
 }

@@ -11,7 +11,10 @@ namespace UserService.Service
 {
     public class UserWhoFollowService : BaseService<UserFollow>, IUserWhoFollowService
     {
-        public UserWhoFollowService() { }
+        public UserWhoFollowService(ILogger<UserService> logger) 
+        {
+            _logger = logger;
+        }
 
         public UserFollow Add(UserFollowDTO dto) 
         {
