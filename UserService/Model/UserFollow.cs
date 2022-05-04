@@ -9,5 +9,6 @@ namespace UserService.Model
     {
         public User User { get; set; }
         public User UserWhoFollow { get; set; }
+        public UserFollowStatus Status { get; set; }
     }
 }
