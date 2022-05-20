@@ -40,5 +40,10 @@ namespace UserService.Repository
         {
             return UserContext.Users.Where(x => x.ResetPasswordToken == token).SingleOrDefault();
         }
+
+        public User Search(string token)
+        {
+            return UserContext.Users.Where(x => x.LastName.Contains(token) || x.FirstName.Contains(token)).SingleOrDefault();
+        }
     }
 }
