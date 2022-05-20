@@ -1,11 +1,19 @@
 version: "3.3"
 services:
+  api_gateway:
+    container_name: api_gateway
+    build:      
+      context: .
+      dockerfile: ./ApiGateway/Dockerfile
+    depends_on: [ mssql ]        
+    ports:
+      - "8080:80"
   user_service:
     container_name: user_service
     build:      
       context: .
       dockerfile: ./UserService/Dockerfile
-    depends_on: [ mssql ]        
+    depends_on: [ api_gateway ]        
     ports:
       - "8081:80"
   post_service:    
@@ -13,7 +21,7 @@ services:
     build:      
       context: .
       dockerfile: ./PostService/Dockerfile
-    depends_on: [ mssql ]        
+    depends_on: [ api_gateway ]        
     ports:
       - "8082:80"
   message_service:    
@@ -21,7 +29,7 @@ services:
     build:      
       context: .
       dockerfile: ./MessageService/Dockerfile
-    depends_on: [ mssql ]        
+    depends_on: [ api_gateway ]        
     ports:
       - "8083:80"
   job_service:    
@@ -29,9 +37,17 @@ services:
     build:      
       context: .
       dockerfile: ./JobService/Dockerfile
-    depends_on: [ mssql ]        
+    depends_on: [ api_gateway ]        
     ports:
       - "8084:80"
+  logger_service:    
+    container_name: logger_service
+    build:      
+      context: .
+      dockerfile: ./LoggerService/Dockerfile
+    depends_on: [ api_gateway ]        
+    ports:
+      - "8085:80"
   mssql:
     image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: mssql
@@ -42,3 +58,12 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=mssql1Ipw
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    environment:
+    - PUID=1000
+    - PGID=1000
+    ports:
+    - 27017:27017
+    restart: unless-stopped

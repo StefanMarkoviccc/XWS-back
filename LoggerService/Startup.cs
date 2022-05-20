@@ -1,3 +1,4 @@
+using LoggerService.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,10 @@ namespace LoggerService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LoggerService", Version = "v1" });
             });
+
+            services.Configure<ProjectConfiguration>(
+                Configuration.GetSection("ProjectConfiguration")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
