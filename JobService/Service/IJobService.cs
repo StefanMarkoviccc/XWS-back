@@ -8,7 +8,8 @@ namespace JobService.Service
 {
     public interface IJobService
     {
-        IEnumerable<Job> GetAllByPosition(long id);
-        
+        IEnumerable<Job> GetAllById(long id);
+        IEnumerable<Job> GetAllByPosition(string s);
+
     }
 }

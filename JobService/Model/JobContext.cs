@@ -12,7 +12,7 @@ namespace JobService.Model
         private static ProjectConfiguration _configuration;
         public JobContext() { }
 
-        public JobContext(DbContextOptions<JobContext> options, ProjectConfiguration configuration) : base(options)
+        public  JobContext(DbContextOptions<JobContext> options, ProjectConfiguration configuration) : base(options)
         {
             if (configuration != null)
             {
@@ -29,7 +29,8 @@ namespace JobService.Model
                 return;
             }
 
-            optionsBuilder.UseSqlServer("Server=LAPTOP-J9TLUS9E;Database=job;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=mssql;Database=job;User Id=sa;Password=mssql1Ipw;");
+            //optionsBuilder.UseSqlServer("Server=LAPTOP-J9TLUS9E;Database=job;Trusted_Connection=True;");
         }
     }
 }

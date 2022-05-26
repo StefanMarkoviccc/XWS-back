@@ -48,21 +48,21 @@ namespace JobService.Service
 
             public virtual TEntity Add(TEntity entity)
             {
-                try
-                {
+                //try
+                //{
                     using UnitOfWork unitOfWork = new(new JobContext());
 
                     unitOfWork.GetRepository<TEntity>().Add(entity);
                     _ = unitOfWork.Complete();
 
                     return entity;
-                }
+                /*}
 
                 catch (Exception e)
                 {
                     _logger.LogError($"Error in BaseService in Add Method { e.Message} in { e.StackTrace}");
                     return null;
-                }
+                }*/
             }
 
             public virtual bool Update(long id, TEntity ent)

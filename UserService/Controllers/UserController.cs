@@ -160,7 +160,7 @@ namespace UserService.Controllers
 
 
         [Route("get-current-user-data")]
-        [HttpPost]
+        [HttpGet]
         public IActionResult GetCurrentUserData()
         {
             return Ok(GetCurrentUser());

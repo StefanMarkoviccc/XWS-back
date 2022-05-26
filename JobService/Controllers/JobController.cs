@@ -19,10 +19,16 @@ namespace JobService.Controllers
             this.jobService = jobService;
         }
 
-        [HttpGet("position/{id}")]
-        public virtual IActionResult GetAllByPosition(int id)
+        [HttpGet("/{id}")]
+        public virtual IActionResult GetAllById(int id)
         {
-            return Ok(jobService.GetAllByPosition(id));
+            return Ok(jobService.GetAllById(id));
+        }
+
+        [HttpGet("position/{s}")]
+        public virtual IActionResult GetAllByPosition(string s)
+        {
+            return Ok(jobService.GetAllByPosition(s));
         }
     }
 }

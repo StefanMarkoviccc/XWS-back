@@ -8,6 +8,8 @@ namespace JobService.Repository
 {
     public interface IJobRepository
     {
-        IEnumerable<Job> GetAllByPosition(long id);
+        IEnumerable<Job> GetAllById(long id);
+        IEnumerable<Job> GetAllByPosition(string s);
+
     }
 }

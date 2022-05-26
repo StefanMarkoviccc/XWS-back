@@ -10,9 +10,15 @@ namespace JobService.Repository
     {
         public JobRepository(JobContext context ) : base(context) { }
 
-        public IEnumerable<Job> GetAllByPosition(long id)
+        public IEnumerable<Job> GetAllById(long id)
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Job> GetAllByPosition(string s)
+        {
+            return JobContext.Jobs.Where(x => !x.Deleted && x.JobPosition.Contains(s)).ToList();
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace JobService.Repository
     {
         private readonly DbContext _context;
 
-        public JobContext LogicalContractContext
+        public JobContext JobContext
         {
             get { return _context as JobContext; }
         }
