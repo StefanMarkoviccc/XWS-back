@@ -159,6 +159,7 @@ namespace UserService.Controllers
         }
 
 
+        [Authorize]
         [Route("get-current-user-data")]
         [HttpGet]
         public IActionResult GetCurrentUserData()

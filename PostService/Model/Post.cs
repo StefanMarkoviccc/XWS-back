@@ -10,7 +10,6 @@ namespace PostService.Model
         public string Content { get; set; }
         public string Image { get; set; }
         public string Link { get; set; }
-        public long PostId { get; set; }
         public long UserID { get; set; }
 
     }
