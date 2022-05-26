@@ -79,6 +79,20 @@ namespace UserService.Service
             }
         }
 
+        public IEnumerable<UserFollow> GetAllUserFollowers(long id)
+        {
+            try
+            {
+                using UnitOfWork unitOfWork = new UnitOfWork(new UserContext());
+
+                return unitOfWork.UserFollows.GetAllUserFollowers(id);
+            }
+            catch (Exception e)
+            { 
+                return new List<UserFollow>();
+            }
+        }
+
         public UserFollow Reject(long id)
         {
             try

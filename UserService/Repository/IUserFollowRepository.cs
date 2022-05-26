@@ -8,5 +8,7 @@ namespace UserService.Repository
 {
     public interface IUserFollowRepository : IBaseRepository<UserFollow>
     {
+        IEnumerable<UserFollow> GetAllUserFollowers(long id);
+
     }
 }

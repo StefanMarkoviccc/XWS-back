@@ -12,6 +12,8 @@ namespace UserService.Service
         UserFollow Add(UserFollowDTO dto);
         UserFollow Approve(long id);
 
+        IEnumerable<UserFollow> GetAllUserFollowers(long id);
+
         UserFollow Reject(long id);
     }
 }

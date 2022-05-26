@@ -22,6 +22,13 @@ namespace UserService.Controllers
             this.userWhoFollowService = userWhoFollowService;
         }
 
+        [HttpGet("/{id}")]
+        public virtual IActionResult GetAllUserFollows(int id)
+        {
+            return Ok(userWhoFollowService.GetAllUserFollowers(id));
+        }
+
+
         [Route("add")]
         [HttpPost]
         public IActionResult Add(UserFollowDTO dto) 
