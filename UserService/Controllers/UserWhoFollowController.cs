@@ -28,6 +28,12 @@ namespace UserService.Controllers
             return Ok(userWhoFollowService.GetAllUserFollowers(id));
         }
 
+        [HttpGet("userApproveFollows/{id}")]
+        public virtual IActionResult GetAllUserApproveFollows(long id)
+        {
+            return Ok(userWhoFollowService.GetAllUserApproveFollowers(id));
+        }
+
 
         [Route("add")]
         [HttpPost]

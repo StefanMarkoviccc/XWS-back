@@ -14,6 +14,9 @@ namespace UserService.Service
 
         IEnumerable<UserFollow> GetAllUserFollowers(long id);
 
+        IEnumerable<UserFollow> GetAllUserApproveFollowers(long id);
+
+
         UserFollow Reject(long id);
     }
 }
