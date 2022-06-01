@@ -1,5 +1,6 @@
 ﻿using JobService.Model;
 using JobService.Repository;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,20 @@ namespace JobService.Service
 {
     public class JobService : BaseService<Job>,IJobService
     {
+        public IEnumerable<Job> GetAll()
+        {
+            try
+            {
+                using UnitOfWork unitOfWord = new(new JobContext());
+                return unitOfWord.Jobs.GetAll();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error is JobService in GetAll {e.Message} {e.StackTrace}");
+                return new List<Job>();
+            }
+        }
+
         public IEnumerable<Job> GetAllById(long id)
         {
             try

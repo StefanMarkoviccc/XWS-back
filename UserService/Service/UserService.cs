@@ -77,25 +77,36 @@ namespace UserService.Service
 
         }
 
-        public User Search(string id)
+        public IEnumerable<User> Search(string id)
         {
+
             try
             {
-                using UnitOfWork unitOfWork = new(new UserContext());
-
-
-
-                User user = unitOfWork.Users.GetUserWithEmail(id);  
-
-                return user;
-
+                using UnitOfWork unitOfWord = new(new UserContext());
+                return unitOfWord.Users.Search();
             }
-
             catch (Exception e)
             {
-                _logger.LogError($"Error is UserService in GetUserWithEmailAndPasswordMethod {e.Message} {e.StackTrace}");
-                return null;
+                _logger.LogError($"Error is UserService in Search {e.Message} {e.StackTrace}");
+                return new List<User>();
             }
+            //try
+            //{
+            //    using UnitOfWork unitOfWork = new(new UserContext());
+
+
+
+            //    User user = unitOfWork.Users.GetUserWithEmail(id);  
+
+            //    return user;
+
+            //}
+
+            //catch (Exception e)
+            //{
+            //    _logger.LogError($"Error is UserService in GetUserWithEmailAndPasswordMethod {e.Message} {e.StackTrace}");
+            //    return null;
+            //}
 
         }
 

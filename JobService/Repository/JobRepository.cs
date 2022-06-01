@@ -20,5 +20,10 @@ namespace JobService.Repository
             return JobContext.Jobs.Where(x => !x.Deleted && x.JobPosition.Contains(s)).ToList();
         }
 
+        public IEnumerable<Job> GetAll()
+        {
+            return JobContext.Jobs.Where(x => !x.Deleted).ToList();
+        }
+
     }
 }

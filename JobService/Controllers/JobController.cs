@@ -25,6 +25,12 @@ namespace JobService.Controllers
             return Ok(jobService.GetAllById(id));
         }
 
+        [HttpGet("/{all}")]
+        public virtual IActionResult GetAll()
+        {
+            return Ok(jobService.GetAll());
+        }
+
         [HttpGet("position/{s}")]
         public virtual IActionResult GetAllByPosition(string s)
         {

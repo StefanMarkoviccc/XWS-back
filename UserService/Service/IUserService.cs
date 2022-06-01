@@ -20,6 +20,8 @@ namespace UserService.Service
         bool Activate(string token); 
         IEnumerable<User> GetAll();
 
+        IEnumerable<User> Search(string id);
+
         IEnumerable<User> GetPublicUsers();
 
         bool Update(long id, User ent);

@@ -28,6 +28,13 @@ namespace UserService.Controllers
             return Ok(GetCurrentUser());
         }
 
+        [Route("search")]
+        [HttpGet]
+        public IActionResult Search(string id)
+        {
+            return Ok(_userService.Search(id));
+        }
+
         [Route("all")]
         [HttpGet]
         public IActionResult GetAll()
