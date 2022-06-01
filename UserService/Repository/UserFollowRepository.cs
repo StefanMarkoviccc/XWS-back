@@ -20,7 +20,7 @@ namespace UserService.Repository
         }
         public IEnumerable<UserFollow> GetAllUserApproveFollowers(long id)
         {
-            return UserContext.UserFollows.Include(x => x.UserWhoFollow).Include(x => x.User).Where(x => !x.Deleted && x.User.Id == id && x.Status == UserFollowStatus.APPROVED).ToList();
+            return UserContext.UserFollows.Include(x => x.UserWhoFollow).Include(x => x.User).Where(x => !x.Deleted && x.UserWhoFollow.Id == id && x.Status == UserFollowStatus.APPROVED).ToList();
         }
 
     }
