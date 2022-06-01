@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace UserService.Repository
        
         public IEnumerable<UserFollow> GetAllUserFollowers(long id)
         {
-            return UserContext.UserFollows.Where(x => !x.Deleted && x.User.Id == id).ToList();
+            return UserContext.UserFollows.Include(x => x.UserWhoFollow).Include(x => x.User).Where(x => !x.Deleted && x.User.Id == id).ToList();
         }
     }
 }
