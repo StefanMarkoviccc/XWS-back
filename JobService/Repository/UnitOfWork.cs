@@ -16,9 +16,12 @@ namespace JobService.Repository
         {
             _context = context;
             Jobs = new JobRepository(_context);
+            ApiKeys = new ApiKeyRepository(_context);
         }
 
         public IJobRepository Jobs { get; private set; }
+
+        public IApiKeyRepository ApiKeys { get; private set; }
         public IBaseRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
             if (_repositories == null)

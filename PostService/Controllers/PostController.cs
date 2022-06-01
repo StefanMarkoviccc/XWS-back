@@ -35,6 +35,7 @@ namespace PostService.Controllers
                 return Ok(postService.GetAllUsersPosts(dto.UsersIds));
             }
 
+
         [HttpPut("{id}")]
         public override IActionResult Update(int id, Post entity)
         {

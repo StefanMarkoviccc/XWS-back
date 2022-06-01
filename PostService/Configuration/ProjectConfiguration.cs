@@ -12,7 +12,6 @@ namespace PostService.Configuration
         public string CLientSecret { get; set; }
         public DatabaseConfiguration DatabaseConfiguration { get; set; } = new DatabaseConfiguration();
         public EmailSettings EmailSettings { get; set; } = new EmailSettings();
-
         public Jwt Jwt { get; set; } = new Jwt();
     }
 
