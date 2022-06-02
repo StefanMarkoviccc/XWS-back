@@ -14,6 +14,6 @@ namespace UserService.Core
         User GetUserWithEmailAndPassword(string email, string password);
 
         User GetUserWithRegistrationToken(string token);
-        IEnumerable<User> GetPublicUsers();
+        IEnumerable<User> GetPublicUsers(string term);
     }
 }

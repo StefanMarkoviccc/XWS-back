@@ -45,9 +45,9 @@ namespace UserService.Controllers
 
         [Route("PublicUsers")]
         [HttpGet]
-        public IActionResult GetPublicUsers()
+        public IActionResult GetPublicUsers([FromQuery(Name = "term")] string term)
         {
-            return Ok(_userService.GetPublicUsers());
+            return Ok(_userService.GetPublicUsers(term));
         }
 
         [Route("register")]

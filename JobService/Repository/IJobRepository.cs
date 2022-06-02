@@ -11,7 +11,7 @@ namespace JobService.Repository
         IEnumerable<Job> GetAllById(long id);
         IEnumerable<Job> GetAllByPosition(string s);
 
-        IEnumerable<Job> GetAll();
+        IEnumerable<Job> GetAll(string term);
 
     }
 }

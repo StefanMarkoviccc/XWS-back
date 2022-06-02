@@ -14,8 +14,6 @@ namespace UserService.Core
 
         IEnumerable<TEntity> GetAll();
 
-        IEnumerable<TEntity> GetPublicUsers();
-
         IEnumerable<TEntity> Search(string term = "");
         PageResponse<TEntity> GetPage(PageModel model);
 
