@@ -38,6 +38,38 @@ namespace JobService.Service
             }
         }
 
+        public Job AddJob(Job entity, long userId)
+        {
+            if (entity == null)
+            {
+                return null;
+            }
+            Job job = new Job();
+            try
+            {
+                using UnitOfWork unitOfWork = new(new JobContext());
+                job.JobDescription = entity.JobDescription;
+                job.ActivityLog = entity.ActivityLog;
+                job.JobPosition = entity.JobPosition;
+                job.JobConditions = entity.JobConditions;
+                job.OwnerId = userId;
+                unitOfWork.Jobs.Add(job);
+                _ = unitOfWork.Complete();
+
+
+                return entity;
+
+            }
+
+
+
+            catch (Exception e)
+            {
+                _logger.LogError($"Error in JobService in AddJob {e.Message} {e.StackTrace}");
+                return null;
+            }
+        }
+
         public IEnumerable<Job> GetAllByPosition(string s)
         {
             try

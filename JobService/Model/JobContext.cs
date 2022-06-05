@@ -21,6 +21,7 @@ namespace JobService.Model
         }
 
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<ApiKey> ApiKeys { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

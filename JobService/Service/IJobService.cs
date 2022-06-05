@@ -11,6 +11,7 @@ namespace JobService.Service
         IEnumerable<Job> GetAllById(long id);
         IEnumerable<Job> GetAllByPosition(string s);
 
+        public Job AddJob(Job entity, long userId);
         IEnumerable<Job> GetAll();
     }
 }

@@ -39,6 +39,11 @@ namespace JobService.Service
             return apiKey;
         }
 
+        public ApiKey CheckIfApiKeyExists(string api)
+        {
+            using UnitOfWork unitOfWork = new(new JobContext());
+            return unitOfWork.ApiKeys.CheckIfApiKeyExists(api);
+        }
 
 
 

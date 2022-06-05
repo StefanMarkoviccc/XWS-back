@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace JobService.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class ApiKeyController : BaseController<ApiKey>
     {
         private IApiKeyService apiKeyService;

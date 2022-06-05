@@ -14,5 +14,10 @@ namespace JobService.Repository
         {
             throw new NotImplementedException();
         }
+
+        public ApiKey CheckIfApiKeyExists(string api)
+        {
+            return JobContext.ApiKeys.Where(x => x.ApiKeyString.Contains(api)).FirstOrDefault();
+        }
     }
 }

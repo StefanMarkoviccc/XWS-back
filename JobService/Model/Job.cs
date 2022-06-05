@@ -11,5 +11,6 @@ namespace JobService.Model
        public string JobPosition { get; set; }
        public string ActivityLog { get; set; }
        public string JobConditions { get; set; }
+       public long OwnerId { get; set; }
     }
 }

@@ -11,5 +11,8 @@ namespace JobService.Service
         IEnumerable<ApiKey> GetAllById(long id);
         ApiKey Add(ApiKey entity);
 
+        ApiKey CheckIfApiKeyExists(string api);
+
+
     }
 }

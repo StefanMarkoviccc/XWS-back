@@ -12,5 +12,8 @@ namespace JobService.Repository
 
         void Add(ApiKey apiKey);
 
+         ApiKey CheckIfApiKeyExists(string api);
+
+
     }
 }

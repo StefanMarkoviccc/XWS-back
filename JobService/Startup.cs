@@ -42,6 +42,7 @@ namespace JobService
 
             services.AddScoped<IJobService, JobService.Service.JobService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IApiKeyService,ApiKeyService>();
 
             ProjectConfiguration config = new ProjectConfiguration();
             Configuration.Bind("ProjectConfiguration", config);

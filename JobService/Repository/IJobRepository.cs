@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace JobService.Repository
 {
-    public interface IJobRepository
+    public interface IJobRepository : IBaseRepository<Job>
     {
         IEnumerable<Job> GetAllById(long id);
         IEnumerable<Job> GetAllByPosition(string s);
-
         IEnumerable<Job> GetAll();
-
     }
 }
