@@ -13,5 +13,7 @@ namespace JobService.Service
 
         public Job AddJob(Job entity, long userId);
         IEnumerable<Job> GetAll();
+
+        IEnumerable<Job> GetAll(string term);
     }
 }

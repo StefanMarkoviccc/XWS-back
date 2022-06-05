@@ -22,7 +22,7 @@ namespace UserService.Service
 
         IEnumerable<User> Search(string id);
 
-        IEnumerable<User> GetPublicUsers();
+        IEnumerable<User> GetPublicUsers(string term);
 
         bool Update(long id, User ent);
 

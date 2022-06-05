@@ -201,12 +201,12 @@ namespace UserService.Service
             return true;
         }
 
-        public IEnumerable<User> GetPublicUsers()
+        public IEnumerable<User> GetPublicUsers(string term)
         {
             try
             {
                 using UnitOfWork unitOfWord = new(new UserContext());
-                return unitOfWord.Users.GetPublicUsers();
+                return unitOfWord.Users.GetPublicUsers(term);
             }
             catch (Exception e)
             {

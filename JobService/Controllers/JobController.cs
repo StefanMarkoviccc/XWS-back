@@ -26,9 +26,9 @@ namespace JobService.Controllers
         }
 
         [HttpGet("all")]
-        public virtual IActionResult GetAll()
+        public virtual IActionResult GetAll([FromQuery(Name = "term")] string term)
         {
-            return Ok(jobService.GetAll());
+            return Ok(jobService.GetAll(term));
         }
 
         [HttpGet("position/{s}")]

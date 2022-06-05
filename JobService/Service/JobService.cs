@@ -10,12 +10,12 @@ namespace JobService.Service
 {
     public class JobService : BaseService<Job>,IJobService
     {
-        public IEnumerable<Job> GetAll()
+        public IEnumerable<Job> GetAll(string term)
         {
             try
             {
                 using UnitOfWork unitOfWord = new(new JobContext());
-                return unitOfWord.Jobs.GetAll();
+                return unitOfWord.Jobs.GetAll(term);
             }
             catch (Exception e)
             {
