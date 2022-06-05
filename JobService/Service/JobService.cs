@@ -83,5 +83,20 @@ namespace JobService.Service
                 return new List<Job>();
             }
         }
+
+        public IEnumerable<Job> GetAll()
+        {
+            try
+            {
+                using UnitOfWork unitOfWord = new(new JobContext());
+                return unitOfWord.Jobs.GetAll();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error is JobService in GetAll {e.Message} {e.StackTrace}");
+                return new List<Job>();
+            }
+            throw new NotImplementedException();
+        }
     }
 }
